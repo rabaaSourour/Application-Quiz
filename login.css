@@ -1,0 +1,83 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Roboto', Helvetica, sans-serif;
+    background: linear-gradient(135deg, rgb(154, 7, 203), rgb(233, 194, 240) 100%);
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container{
+    background-color: aquamarine;
+    padding: 20px;
+    box-shadow: 0 4px 8px black;
+    border-radius: 10px;
+    width: 100%;
+    transition: 0.3s;
+    max-width: 400px;
+}
+
+h1{
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+label{
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"]{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+}
+
+button{
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(142, 102, 140);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover{
+    background-color: rgb(135, 6, 88);
+    transform: translateY(-2px);
+}
+
+p{
+    margin-top: 10px;
+    text-align: center;
+}
+
+a{
+    color: rgb(154, 7, 203);
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    .container{
+        padding: 20px;
+        max-width: 90%;
+    }
+    h1{
+        font-size: 1.5rem;
+    }
+}

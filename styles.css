@@ -77,10 +77,41 @@ button:hover{
 
 #result{
     margin-top: 20px;
-    font-size: 18px;
+    font-size: 1.2rem;
     font-weight: bold;
     color: darkorchid;
     text-align: center;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.excellent{
+    background-color: rgb(13, 206, 113);
+    color: white;
+    box-shadow: 0 4px 8px rgb(1, 38, 1);
+    border: 2px solid rgb(2, 85, 2);
+}
+
+.good{
+    background-color: rgb(174, 208, 69);
+    color: white;
+    box-shadow: 0 4px 8px rgb(116, 129, 2);
+    border: 2px solid rgb(250, 254, 3);
+}
+
+.try-again{
+    background-color: rgb(232, 8, 8);
+    color: white;
+    box-shadow: 0 4px 8px rgb(84, 10, 10);
+    border: 2px solid rgb(220, 101, 101);
+}
+
+@media (max-width: 768px) {
+    #result{
+    font-size: 1rem;
+    padding: 10px;
+    border-radius: 6px;
+    }
 }
 
 @media (max-width: 600px) {
