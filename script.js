@@ -49,39 +49,75 @@ function submitQuiz() {
     })
 }
 
-function registerUser() {
-    const username = document.getElementById("username").value
-    const password = document.getElementById("password").value
-
-    if (username && password) {
-        localStorage.setItem("username", username)
-        localStorage.setItem("password", password)
-        alert("Inscription reussie ! vous pouvez maintenet vous connecter.")
-    } else {
-        alert("Veuillez remplir tous les champs")
-    }
-}
-
-function loginUser() {
-    const username = document.getElementById("login-username").value
-    const password = document.getElementById("login-password").value
-
-    const storedUsername = localStorage.getItem("username")
-    const storePassword = localStorage.getItem("password")
-
-    if (username === storedUsername && password === storePassword) {
-        localStorage.setItem("isAuthenticated", true)
-        window.location.href = "index.html"
-    } else {
-        alert("Nom d'utilisateur ou mot de passe incorrect.")
-    }
-}
-
 function checkAuth() {
-const isAuthenticated = localStorage.getItem("isAuthenticated")
+    const isAuthenticated = localStorage.getItem("isAuthenticated")
 
-if (isAuthenticated !== "true") {
-    alert("Vellez vous connecter pour accéder ou quizz")
+    if (isAuthenticated !== "true") {
+        alert("Vellez vous connecter pour accéder ou quizz")
+
+    }
+}
+
+function showUserMenu(username) {
+    const usernameDisplay = document.getElementById(username - display)
+    usernameDisplay.textContent = storedUsername
 
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    const storedUsername = localStorage.getItem('username')
+    const isAuthenticated = localStorage.getItem('isAuthenticated')
+    if (storedUsername && (isAuthenticated == "true")) {
+        showUserMenu(storedUsername)
+    } else {
+        window.location.href = "login.html"
+    }
+})
+
+document.getElementById("logout-btn").addEventListener("click", function () {
+    localStorage.setItem("isAuthenticated", false)
+    window.location.href = "login.html"
+})
+
+let currentQuestionIndex = 0
+let questions = []
+let selectedDifficulty = ""
+
+async function loadQuestions(difficulty) {
+console.log("difficulté choisie" + difficulty)
+
+    try {
+        const response = await fetch("questions.json")
+        questions = await response.json()
+
+        const FilteredQuestions = questions.filter(
+            (q) => q.difficulty === difficulty
+        )
+        selectedDifficulty = difficulty 
+        let currentQuestionIndex = 0
+
+        startQuiz()
+    } catch (error) {
+        console.log("Erreur lors du chargement des queqtions", error)
+    }
 }
+
+function startQuiz(){
+    document.querySelector('.difficulty-btn').classList.add("hidden")
+    document.getElementById('quiz-container').classList.remove("hidden")
+    showQuestion();
+}
+
+function showQuestion(){
+    if(currentQuestionIndex< questions.length){
+        const questionData = question[currentQuestionIndex]
+        console.log("question data" + questionData)
+    }
+}
+
+document.querySelectorAll(".difficulty-btn").forEach(btn => {
+    btn.addEventListener("click", function () {
+        const level = btn.getAttribute("data-level");
+        loadQuestions(level);
+    });
+});

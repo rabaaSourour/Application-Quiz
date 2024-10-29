@@ -1,0 +1,224 @@
+{
+    "questions": [
+        {
+            "question": "Quel est le plus grand océan sur Terre ?",
+            "options": [
+                "Océan Atlantique",
+                "Océan Indien",
+                "Océan Pacifique",
+                "Océan Arctique"
+            ],
+            "answer": "Océan Pacifique",
+            "difficulty": "facile"
+        },
+        {
+            "question": "Combien de continents existe-t-il sur Terre ?",
+            "options": [
+                "5",
+                "6",
+                "7",
+                "8"
+            ],
+            "answer": "7",
+            "difficulty": "facile"
+        },
+        {
+            "question": "Quel est le symbole chimique de l'eau ?",
+            "options": [
+                "H2O",
+                "O2",
+                "H2",
+                "HO2"
+            ],
+            "answer": "H2O",
+            "difficulty": "facile"
+        },
+        {
+            "question": "Quel est le plus grand désert du monde ?",
+            "options": [
+                "Sahara",
+                "Désert de Gobi",
+                "Désert d'Atacama",
+                "Désert Antarctique"
+            ],
+            "answer": "Désert Antarctique",
+            "difficulty": "facile"
+        },
+        {
+            "question": "Quelle planète est la plus proche du Soleil ?",
+            "options": [
+                "Vénus",
+                "Mercure",
+                "Terre",
+                "Mars"
+            ],
+            "answer": "Mercure",
+            "difficulty": "facile"
+        },
+        {
+            "question": "Quelle est la capitale de l'Australie ?",
+            "options": [
+                "Sydney",
+                "Melbourne",
+                "Canberra",
+                "Perth"
+            ],
+            "answer": "Canberra",
+            "difficulty": "moyen"
+        },
+        {
+            "question": "En quelle année Christophe Colomb a-t-il découvert l'Amérique ?",
+            "options": [
+                "1492",
+                "1498",
+                "1502",
+                "1485"
+            ],
+            "answer": "1492",
+            "difficulty": "moyen"
+        },
+        {
+            "question": "Qui a écrit 'Les Misérables' ?",
+            "options": [
+                "Émile Zola",
+                "Victor Hugo",
+                "Gustave Flaubert",
+                "Molière"
+            ],
+            "answer": "Victor Hugo",
+            "difficulty": "moyen"
+        },
+        {
+            "question": "Quel est le symbole chimique de l'or ?",
+            "options": [
+                "Au",
+                "Ag",
+                "Fe",
+                "Hg"
+            ],
+            "answer": "Au",
+            "difficulty": "moyen"
+        },
+        {
+            "question": "Quelle est la plus grande planète du système solaire ?",
+            "options": [
+                "Mars",
+                "Saturne",
+                "Jupiter",
+                "Neptune"
+            ],
+            "answer": "Jupiter",
+            "difficulty": "moyen"
+        },
+        {
+            "question": "Quelle est la vitesse de la lumière dans le vide ?",
+            "options": [
+                "300 000 km/s",
+                "150 000 km/s",
+                "100 000 km/s",
+                "250 000 km/s"
+            ],
+            "answer": "300 000 km/s",
+            "difficulty": "difficile"
+        },
+        {
+            "question": "Qui a formulé la théorie de la relativité ?",
+            "options": [
+                "Isaac Newton",
+                "Albert Einstein",
+                "Galilée",
+                "Nikola Tesla"
+            ],
+            "answer": "Albert Einstein",
+            "difficulty": "difficile"
+        },
+        {
+            "question": "En quelle année la première guerre mondiale a-t-elle commencé ?",
+            "options": [
+                "1912",
+                "1914",
+                "1916",
+                "1918"
+            ],
+            "answer": "1914",
+            "difficulty": "difficile"
+        },
+        {
+            "question": "Quel est le nombre total de faces sur un dodécaèdre régulier ?",
+            "options": [
+                "10",
+                "12",
+                "20",
+                "24"
+            ],
+            "answer": "12",
+            "difficulty": "difficile"
+        },
+        {
+            "question": "Quel est le pays le plus peuplé du monde ?",
+            "options": [
+                "Inde",
+                "Chine",
+                "États-Unis",
+                "Brésil"
+            ],
+            "answer": "Chine",
+            "difficulty": "facile"
+        },
+        {
+            "question": "Qui a peint la Joconde ?",
+            "options": [
+                "Michel-Ange",
+                "Léonard de Vinci",
+                "Raphaël",
+                "Donatello"
+            ],
+            "answer": "Léonard de Vinci",
+            "difficulty": "moyen"
+        },
+        {
+            "question": "Quel gaz est le plus abondant dans l'atmosphère terrestre ?",
+            "options": [
+                "Oxygène",
+                "Hydrogène",
+                "Azote",
+                "Dioxyde de carbone"
+            ],
+            "answer": "Azote",
+            "difficulty": "moyen"
+        },
+        {
+            "question": "Quel est le nombre de notes dans une octave musicale ?",
+            "options": [
+                "6",
+                "7",
+                "8",
+                "9"
+            ],
+            "answer": "8",
+            "difficulty": "facile"
+        },
+        {
+            "question": "Qui a découvert la pénicilline ?",
+            "options": [
+                "Marie Curie",
+                "Alexander Fleming",
+                "Louis Pasteur",
+                "Gregor Mendel"
+            ],
+            "answer": "Alexander Fleming",
+            "difficulty": "difficile"
+        },
+        {
+            "question": "Quel est le premier élément du tableau périodique ?",
+            "options": [
+                "Hydrogène",
+                "Hélium",
+                "Lithium",
+                "Oxygène"
+            ],
+            "answer": "Hydrogène",
+            "difficulty": "facile"
+        }
+    ]
+}
