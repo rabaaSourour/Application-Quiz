@@ -1,28 +1,32 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="login.css">
-    <title>Connection</title>
+    <title>Jeu Quiz - Connexion</title>
 </head>
 <body>
-    <div class="container">
-        <h1>Login</h1>
-        <form id="login-form">
-        <label for="login-username">Nom d'utilisateur :</label>
-        <input type="text" id="login-usename" placeholder="Entre le nom d'utilisateur">
-
-        <label for="login-password">Mot de passe :</label>
-        <input type="password" id="login-password" placeholder="Entre le mot de passe">
-
-        <button type="button" onclick="loginUser()">S'inscrire</button>
-
+    <h1>Jeu Quizz</h1>
+<div class="login-page">
+    <div class="form">
+        <form class="login-form" method="post">
+            <h2>Se connecter</h2>
+            <input type="text" placeholder="Nom d'utilisateur" required />
+            <input type="password" placeholder="Mot de passe" required />
+            <a class="btn" href="index.html">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Connexion
+            </a>
+            <p class="message">Pas encore inscrit ? <a href="register.html">Créer un compte</a></p>
         </form>
-        <p>Pas encore de compte ? <a href="#register">Se connecter</a> </p>
-
     </div>
-
-    <script src="login.js"></script>
+</div>
+<script src="login.js"></script>
 </body>
+
 </html>

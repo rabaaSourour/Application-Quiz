@@ -3,11 +3,26 @@ function registerUser() {
     const password = document.getElementById("password").value
 
     if (username && password) {
-        localStorage.setItem("username", username)
-        localStorage.setItem("password", password)
-        alert("Inscription reussie ! vous pouvez maintenet vous connecter.")
-        window.location.href = 'login.html'
+        fetch("/api/register", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ username, password })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert("Utilisateur enregistré avec succès !");
+                window.location.href = 'login.html';
+            } else {
+                alert("Erreur lors de l'enregistrement. Veuillez réessayer.");
+            }
+        })
+        .catch(err => {
+            console.error("Erreur de connexion au serveur :", err);
+        });
     } else {
-        alert("Veuillez remplir tous les champs")
+        alert("Veuillez remplir tous les champs.");
     }
 }

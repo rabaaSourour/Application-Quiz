@@ -2,21 +2,30 @@ let currentQuestionIndex = 0
 let questions = []
 let selectedDifficulty = ""
 let score = 0
+let timeLimit = 10
+let timeRemaining = 0
+let timer 
+
+const url =
+    "https://4caed1f0-e49f-4ab6-a038-9ed66d622bfe.mock.pstmn.io/api/quiz"
 
 async function loadQuestions(difficulty) {
-    console.log("difficulté choisie" + difficulty)
-
     try {
-        const response = await fetch("questions.json")
+        const response = await fetch(url)
+        if (!response.ok){
+            throw new Error(`Erreur http : ${response.status}`)
+        }
+
         const AllQuestions = await response.json()
 
         questions = AllQuestions.filter((q) => q.difficulty === difficulty)
         selectedDifficulty = difficulty
-        let currentQuestionIndex = 0
+        currentQuestionIndex = 0
+        document.getElementById('progress-bar').classList.add("hidden")
 
         startQuiz()
     } catch (error) {
-        console.log("Erreur lors du chargement des queqtions", error)
+        console.log("Erreur lors du chargement des questions", error)
     }
 }
 
@@ -27,9 +36,10 @@ function startQuiz() {
 }
 
 function showQuestion() {
+    document.getElementById('progress-bar').classList.remove("hidden")
     if (currentQuestionIndex < questions.length) {
 
-        const questionData = question[currentQuestionIndex]
+        const questionData = questions[currentQuestionIndex]
         console.log("question data" + questionData)
         const questionContainer = document.getElementById("quiz-container")
 
@@ -43,49 +53,95 @@ function showQuestion() {
         ${questionData.options
                 .map((option, index) =>
                     `
-            <label type="radio" name="answer" value="${option}">${option}</label>
+            <label>
+            <input type="radio" name="answer" value="${option}">
+            <span class="custom-radio"></span>
+            ${option}
+            </label>
 
-                `)
+            `
+                )
                 .join("")}
             <button type="button" onClick="submitAnswer()"> Soumettre </button>
         `
+        startTimer()
     } else {
         showFinalResult()
     }
 }
 
-function submitAnswer(){
+function startTimer() {
+    timeRemaining = timeLimit
+    updateProgressBar()
+    timer = setInterval(() => {
+        timeRemaining--
+        updateProgressBar()
+        if (timeRemaining <= 0) {
+            clearInterval(timer)
+            nextQuestion()
+        }
+    }, 1000);
+}
+
+function nextQuestion() {
+    currentQuestionIndex++
+    showQuestion()
+}
+
+function updateProgressBar() {
+    const progressBar = document.getElementById("progress-bar")
+    const progress = (timeRemaining / timeLimit) = 100
+    progressBar.style.width = `${progress}%`
+
+    if (progress <= 30) {
+        progressBar.style.backgroundColor = "#e74C3C"
+    } else if (progress <= 60) {
+        progressBar.style.backgroundColor = "#f5c400"
+    } else if (progress > 60) {
+        progressBar.style.backgroundColor = "#0dff00";
+    }
+}
+
+function stopTimer() {
+    clearInterval(timer)
+}
+
+function submitAnswer() {
+    stopTimer()
     const form = document.getElementById("quiz-form")
     const selectedAnswer = form.answer.value
 
-    if (!selectedAnswer){
+    if (!selectedAnswer) {
         alert("veuillez sélectionner une réponse.")
         return
     }
+
     checkAnswer(selectedAnswer)
+    currentQuestionIndex++
+    showQuestion()
 }
 
-function checkAnswer(selectedAnswer){
+function checkAnswer(selectedAnswer) {
     const cuerrentQuestion = questions[currentQuestionIndex]
-    if(selectedAnswer === cuerrentQuestion.answer){
+    if (selectedAnswer === cuerrentQuestion.answer) {
         incrementScore()
     }
 }
 
-function incrementScore(){
+function incrementScore() {
     score++
 }
 
-function showFinalResult(){
-    const quizContainer = document.getElementById("quiz-container")
-    quizContainer.innerHTML =
-
-    `
-    <div id="result">
-    <p>Votre score final est de ${score} sur ${questions.length}.</p>
-    </div>
-    `
+function showFinalResult() {
+    const quizContainer = document.getElementById("quiz-container");
+    quizContainer.innerHTML = `
+        <div id="result">
+            <p>Votre score final est de ${score} sur ${questions.length}.</p>
+            <button onclick="window.location.href='index.html'">Reprendre le quiz</button>
+        </div>
+    `;
 }
+
 
 document.querySelectorAll(".difficulty-btn").forEach(btn => {
     btn.addEventListener("click", function () {
@@ -106,21 +162,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function checkAuth() {
     const isAuthenticated = localStorage.getItem("isAuthenticated")
-
     if (isAuthenticated !== "true") {
-        alert("Vellez vous connecter pour accéder ou quizz")
+        alert("Veillez vous connecter pour accéder ou quizz")
 
     }
 }
 
 function showUserMenu(username) {
-    const usernameDisplay = document.getElementById(username - display)
+    const usernameDisplay = document.getElementById('username-display')
     usernameDisplay.textContent = storedUsername
 
 }
 
 document.getElementById("logout-btn").addEventListener("click", function () {
-    localStorage.setItem("isAuthenticated", false)
+    localStorage.setItem("isAuthenticated", "false")
     window.location.href = "login.html"
 })
+
 

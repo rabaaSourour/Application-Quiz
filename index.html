@@ -11,16 +11,23 @@
 <body>
     <header>
         <nav class="navbar">
-            <div class="logo">Quiz App</div>
+            <div class="logo">
+                <h1>Jeux Quiz</h1>
+            </div>
             <div class="user-nenu">
                 <span id="username-display"></span>
-                <button id="logout-btn">se déconnecter</button>
+                <a id="logout-btn" href="login.html">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                se déconnecter
+            </a>
             </div>
         </nav>
     </header>
 
     <div class="container">
-        <h1>Quiz Interactif</h1>
         <div class="difficulty-selection">
             <h2>Choisissez le niveau de difficulté :</h2>
             <button class="difficulty-btn" data-level="facile">Facile</button>
@@ -28,6 +35,10 @@
             <button class="difficulty-btn" data-level="difficile">Difficile</button>
         </div>
         <div id="quiz-container" class="hidden"></div>
+    </div>
+
+    <div class="timer-contaire">
+        <div id="progress-bar"></div>
     </div>
 
 
