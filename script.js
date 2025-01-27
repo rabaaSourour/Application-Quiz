@@ -90,7 +90,7 @@ function nextQuestion() {
 
 function updateProgressBar() {
     const progressBar = document.getElementById("progress-bar")
-    const progress = (timeRemaining / timeLimit) = 100
+    const progress = (timeRemaining / timeLimit) * 100
     progressBar.style.width = `${progress}%`
 
     if (progress <= 30) {
@@ -122,8 +122,8 @@ function submitAnswer() {
 }
 
 function checkAnswer(selectedAnswer) {
-    const cuerrentQuestion = questions[currentQuestionIndex]
-    if (selectedAnswer === cuerrentQuestion.answer) {
+    const currentQuestion = questions[currentQuestionIndex]
+    if (selectedAnswer === currentQuestion.answer) {
         incrementScore()
     }
 }
@@ -170,7 +170,8 @@ function checkAuth() {
 
 function showUserMenu(username) {
     const usernameDisplay = document.getElementById('username-display')
-    usernameDisplay.textContent = storedUsername
+    usernameDisplay.textContent = username
+me
 
 }
 
