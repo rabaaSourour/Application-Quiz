@@ -170,7 +170,7 @@ function checkAuth() {
 
 function showUserMenu(username) {
     const usernameDisplay = document.getElementById('username-display')
-    usernameDisplay.textContent = Username
+    usernameDisplay.textContent = storedUsername
 
 }
 
