@@ -1,20 +1,22 @@
 function registerUser() {
-    const username = document.getElementById("username").value
+    event.preventDefault();
+    const name = document.getElementById("name").value
+    const email = document.getElementById("email").value
     const password = document.getElementById("password").value
 
-    if (username && password) {
-        fetch("/api/register", {
+    if (name && email && password) {
+        fetch("/register", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({ username, password })
+            body: JSON.stringify({ name, email, password })
         })
         .then(response => response.json())
         .then(data => {
             if (data.success) {
                 alert("Utilisateur enregistré avec succès !");
-                window.location.href = 'login.html';
+                window.location.href = '/login';
             } else {
                 alert("Erreur lors de l'enregistrement. Veuillez réessayer.");
             }
@@ -26,3 +28,5 @@ function registerUser() {
         alert("Veuillez remplir tous les champs.");
     }
 }
+
+document.querySelector(".register-form").addEventListener("submit", registerUser);
