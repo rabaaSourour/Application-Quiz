@@ -2,7 +2,7 @@
 
 *{
     box-sizing: border-box;
-    margin: 0;
+    margin: 3px;
     padding: 0;
 }
 
@@ -55,6 +55,7 @@ h2{
 .question p{
     font-size: 18px;
     font-weight: bold;
+    color: #fff;
 }
 
 label{
@@ -68,7 +69,7 @@ label{
 }
 
 label:hover{
-    background-color: antiquewhite;
+    background-color: #2c5364;
 }
 
 button{
@@ -270,17 +271,17 @@ button:hover{
 }
 
 .option:hover{
-    background-color: ;
+    background-color: #2c5364;
 }
 
-.option input{type="radio"}{
+.option input[type="radio"] {
     display: none;
 }
 
 .option .custom-radio{
     width: 16px;
     height: 16px;
-    border: 2px solid #871a66;
+    border: 2px solid #2c5364;
     border-radius: 50%;
     margin-right: 10px;
     display: flex;

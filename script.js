@@ -18,7 +18,7 @@ async function loadQuestions(difficulty) {
 
         const AllQuestions = await response.json()
 
-        questions = AllQuestions.filter((q) => q.difficulty === difficulty)
+        questions = AllQuestions.questions.filter((q) => q.difficulty === difficulty);
         selectedDifficulty = difficulty
         currentQuestionIndex = 0
         document.getElementById('progress-bar').classList.add("hidden")
@@ -90,7 +90,7 @@ function nextQuestion() {
 
 function updateProgressBar() {
     const progressBar = document.getElementById("progress-bar")
-    const progress = (timeRemaining / timeLimit) = 100
+    const progress = (timeRemaining / timeLimit) * 100
     progressBar.style.width = `${progress}%`
 
     if (progress <= 30) {
@@ -122,8 +122,8 @@ function submitAnswer() {
 }
 
 function checkAnswer(selectedAnswer) {
-    const cuerrentQuestion = questions[currentQuestionIndex]
-    if (selectedAnswer === cuerrentQuestion.answer) {
+    const currentQuestion = questions[currentQuestionIndex]
+    if (selectedAnswer === currentQuestion.answer) {
         incrementScore()
     }
 }
@@ -150,15 +150,15 @@ document.querySelectorAll(".difficulty-btn").forEach(btn => {
     });
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-    const storedUsername = localStorage.getItem('username')
-    const isAuthenticated = localStorage.getItem('isAuthenticated')
-    if (storedUsername && (isAuthenticated == "true")) {
-        showUserMenu(storedUsername)
-    } else {
-        window.location.href = "login.html"
-    }
-})
+// document.addEventListener('DOMContentLoaded', function () {
+//     const storedUsername = localStorage.getItem('username')
+//     const isAuthenticated = localStorage.getItem('isAuthenticated')
+//     if (storedUsername && (isAuthenticated == "true")) {
+//         showUserMenu(storedUsername)
+//     } else {
+//         window.location.href = "login.html"
+//     }
+// })
 
 function checkAuth() {
     const isAuthenticated = localStorage.getItem("isAuthenticated")
@@ -170,7 +170,7 @@ function checkAuth() {
 
 function showUserMenu(username) {
     const usernameDisplay = document.getElementById('username-display')
-    usernameDisplay.textContent = storedUsername
+    usernameDisplay.textContent = Username
 
 }
 
