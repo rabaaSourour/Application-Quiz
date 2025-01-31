@@ -150,15 +150,15 @@ document.querySelectorAll(".difficulty-btn").forEach(btn => {
     });
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-    const storedUsername = localStorage.getItem('name')
-    const isAuthenticated = localStorage.getItem('isAuthenticated')
-    if (storedUsername && (isAuthenticated == "true")) {
-        showUserMenu(storedUsername)
-    } else {
-        window.location.href = "/login"
-    }
-})
+// document.addEventListener('DOMContentLoaded', function () {
+//     const storedUsername = localStorage.getItem('name')
+//     const isAuthenticated = localStorage.getItem('isAuthenticated')
+//     if (storedUsername && (isAuthenticated == "true")) {
+//         showUserMenu(storedUsername)
+//     } else {
+//         window.location.href = "/login"
+//     }
+// })
 
 function checkAuth() {
     const isAuthenticated = localStorage.getItem("isAuthenticated")
