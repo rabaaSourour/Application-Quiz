@@ -46,6 +46,6 @@ Ajouter une base de données (Firebase, MongoDB…)
 Implémenter un système de score persistant
 Ajouter un chronomètre pour les quiz
 Améliorer la sécurité de l’authentification
-📄 Licence
 
+📄 Licence
 Ce projet est libre d'utilisation à des fins éducatives.
